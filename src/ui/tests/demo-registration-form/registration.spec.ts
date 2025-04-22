@@ -1,6 +1,6 @@
 import test, { expect } from "@playwright/test";
 test.describe("[UI] [demo-registration-form] Registration", () => {
-  test.only("Fill registration form with valid values", async ({ page }) => {
+  test("Fill registration form with valid values", async ({ page }) => {
     const validUser = {
       firstName: "Ivan",
       lastName: "Petrov",
