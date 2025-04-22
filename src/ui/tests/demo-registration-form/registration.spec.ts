@@ -59,29 +59,24 @@ test.describe("[UI] [demo-registration-form] Registration", () => {
     //Submit
     await page.locator('button[type="submit"]').click();
 
+    //Проверяем появление формы с результатами после клика
+    await expect(page.locator("h2")).toHaveText("Registration Details");
+
     //assert
 
-    await expect(page.locator("#fullName")).toContainText(
+    await expect(page.locator("#fullName")).toHaveText(
       `${validUser.firstName} ${validUser.lastName}`
     );
-    await expect(page.locator("#address")).toContainText(
-      `${validUser.address}`
-    );
-    await expect(page.locator("#email")).toContainText(`${validUser.email}`);
-    await expect(page.locator("#phone")).toContainText(`${validUser.phone}`);
-    await expect(page.locator("#phone")).toContainText(`${validUser.phone}`);
-    await expect(page.locator("#country")).toContainText(
-      `${validUser.country}`
-    );
-    await expect(page.locator("#gender")).toContainText(`${validUser.gender}`);
-    await expect(page.locator("#language")).toContainText(
-      `${validUser.language}`
-    );
-    await expect(page.locator("#skills")).toContainText(`${validUser.skills}`);
-    await expect(page.locator("#hobbies")).toContainText(
-      `${validUser.hobbies}`
-    );
-    await expect(page.locator("#dateOfBirth")).toContainText(
+    await expect(page.locator("#address")).toHaveText(`${validUser.address}`);
+    await expect(page.locator("#email")).toHaveText(`${validUser.email}`);
+    await expect(page.locator("#phone")).toHaveText(`${validUser.phone}`);
+    await expect(page.locator("#phone")).toHaveText(`${validUser.phone}`);
+    await expect(page.locator("#country")).toHaveText(`${validUser.country}`);
+    await expect(page.locator("#gender")).toHaveText(`${validUser.gender}`);
+    await expect(page.locator("#language")).toHaveText(`${validUser.language}`);
+    await expect(page.locator("#skills")).toHaveText(`${validUser.skills}`);
+    await expect(page.locator("#hobbies")).toHaveText(`${validUser.hobbies}`);
+    await expect(page.locator("#dateOfBirth")).toHaveText(
       `${validUser.dateOfBirth}`
     );
 
