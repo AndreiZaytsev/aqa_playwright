@@ -12,8 +12,8 @@ export class LoginPage {
   }
 
   async fillCredentails() {
-    await this.emailInput.fill("test@gmail.com");
-    await this.passwordInput.fill("12345678");
+    await this.emailInput.fill("andzaytsev");
+    await this.passwordInput.fill("60482436048243");
   }
 
   async loginButtonClick() {
