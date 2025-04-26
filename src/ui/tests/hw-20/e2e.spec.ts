@@ -6,20 +6,19 @@ import { LoginPage } from "../../pages/login.page";
 import { generateCustomerData } from "../../../data/customers/generateCustomer.data";
 import { NOTIFICATIONS } from "../../../data/notifications.data";
 
-test.describe("[UI] [Sales Portal] [Customers]", async () => {
+test.describe("[UI] [Sales Portal] [Customers]", () => {
   test.only("Should create customer", async ({ page }) => {
     const homePage = new HomePage(page);
     const customersPage = new CustomersPage(page);
     const addNewCustomerPage = new AddNewCustomerPage(page);
     const loginPage = new LoginPage(page);
 
-    //login
-    await page.goto("https://anatoly-karpovich.github.io/aqa-course-project/#");
+    // Login
     await page.goto("https://anatoly-karpovich.github.io/aqa-course-project/#");
     await loginPage.fillCredentails();
     await loginPage.loginButtonClick();
 
-    //create new user
+    // Create new user
     await homePage.waitForOpened();
     await homePage.clickModuleButton("Customers");
     await customersPage.waitForOpened();
@@ -31,7 +30,7 @@ test.describe("[UI] [Sales Portal] [Customers]", async () => {
     await customersPage.waitForOpened();
     await customersPage.waitForNotification(NOTIFICATIONS.CUSTOMER_CREATED);
 
-    //assertion
+    // Assertion
     await expect(customersPage.newUserEmailField).toHaveText(data.email);
     await expect(customersPage.newUserNameField).toHaveText(data.name);
     await expect(customersPage.newUserCountryField).toHaveText(data.country);
