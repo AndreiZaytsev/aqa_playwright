@@ -1,10 +1,11 @@
 import test, { expect } from "@playwright/test";
-import { HomePage } from "../../pages/home.page";
-import { CustomersPage } from "../../pages/customers/customers.page";
-import { AddNewCustomerPage } from "../../pages/customers/add-new-customer.page";
-import { LoginPage } from "../../pages/login.page";
 import { generateCustomerData } from "../../../data/customers/generateCustomer.data";
 import { NOTIFICATIONS } from "../../../data/notifications.data";
+import { AddNewCustomerPage } from "../../pages/customers/add-new-customer.page";
+import { CustomersPage } from "../../pages/customers/customers.page";
+import { HomePage } from "../../pages/home.page";
+import { LoginPage } from "../../pages/login.page";
+
 
 test.describe("[UI] [Sales Portal] [Customers]", () => {
   test.only("Should create customer", async ({ page }) => {
